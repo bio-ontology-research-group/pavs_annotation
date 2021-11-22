@@ -1,8 +1,15 @@
 import sys
 import json
+import requests
+
+target_url="http://pavs.phenomebrowser.net/sparql?query=PREFIX+%3A+%3Chttp%3A%2F%2Fpavs.phenomebrowser.net%2F%3E+++++++++%0D%0APREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E+++++++++%0D%0A+++++++++++%0D%0ASELECT+distinct+%3Fphenopacket+%3FhgvsAllele+%3Fallele+%3Fassembly+%3Fspdi_inserted_sequence+%3Fspdi_deleted_sequence+%28group_concat%28distinct+%3Fphenotype_label%3Bseparator%3D%22%7C%22%29+as+%3Fphenotype_labels%29++%28group_concat%28distinct+%3Fclass%3Bseparator%3D%22%7C%22%29+as+%3Fhpo_classes%29+%0D%0AFROM+%3Chttp%3A%2F%2Fpavs.phenomebrowser.net%3E%0D%0AWHERE+%7B%0D%0A+%3Fphenopacket+rdf%3Atype+%3APhenopacket+.%0D%0A+%3Fphenopacket+%3Abiosamples+%3Fsample+.%0D%0A+%3Fsample+%3Avariants+%3Fvariant+.%0D%0A+%3Fvariant+%3Ahgvs_allele+%3FhgvsAllele+.%0D%0A+%3Fvariant+%3Aallele+%3Fallele+.%0D%0A+%3Fvariant+%3Aassembly+%3Fassembly+.%0D%0A++OPTIONAL+%7B+%0D%0A+++++%3Fvariant+%3ASpdiAllele+%3Fspdi_allele+.+%0D%0A+++++OPTIONAL+%7B+%3Fspdi_allele+%3Ainserted_sequence+%3Fspdi_inserted_sequence+.+%7D%0D%0A+++++OPTIONAL+%7B+%3Fspdi_allele+%3Adeleted_sequence+%3Fspdi_deleted_sequence+.++%7D%0D%0A++%7D+%0D%0A%0D%0A++OPTIONAL+%7B+%0D%0A+++++%3Fphenopacket+%3Aphenotypic_features+%3Fpheno_features+.+%0D%0A+++++%3Fpheno_features+%3Atype+%3Fclass+.%0D%0A+++++OPTIONAL+%7B+%3Fclass+rdfs%3Alabel+%3Fphenotype_label+.++%7D%0D%0A++++OPTIONAL+%7B+%3Fpheno_features+dc%3Adescription+%3Fphenotype_label+.+%7D+%0D%0A++%7D+%0D%0A%7D+++++&format=text%2Ftab-separated-values&timeout=0&debug=on"
+
+req = requests.get(target_url)
+f = open("pavs_final.tsv", "w")
+f.write(req.text)
+f.close()
 
 ref="GRCh"+sys.argv[1]
-
 
 proc_str=[]
 
