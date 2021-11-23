@@ -27,7 +27,6 @@ inputs:
   custom_args:
     type: string
 
-
 outputs:
   console_out: stdout
   anno_file_out: 
