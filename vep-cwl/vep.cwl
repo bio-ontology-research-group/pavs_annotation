@@ -27,30 +27,7 @@ arguments:
   - '--cache'
   - valueFrom: '/opt/vep/.vep/'
     prefix: --dir_cache
-# inputs:
-#   cfp:
-#     type: string?
-#     inputBinding:
-#       position: 1
-#       prefix: '-a'
-#   species:
-#     type: string?
-#     default: 'homo_sapiens'
-#     inputBinding:
-#       position: 2
-#       prefix: '-s'
-#   assembly:
-#     type: string?
-#     default: 'GRCh38'
-#     inputBinding:
-#       position: 3
-#       prefix: '-y'
-#   PLUGINS:
-#     type: string?
-#     inputBinding:
-#       position: 4
-#       prefix: '-g'
-
+  - '--symbol --transcript_version --tsl --numbers  --check_existing --hgvs --biotype --cache --tab --no_stats --af --af_gnomad --canonical'
 outputs:
   out1: stdout
    
