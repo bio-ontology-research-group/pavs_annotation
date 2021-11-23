@@ -26,6 +26,15 @@ inputs:
       - .tbi
   custom_args:
     type: string
+
+
+outputs:
+  console_out: stdout
+  anno_file_out:
+    type: File
+    outputBinding:
+      glob: output.vcf
+
 arguments:
   - valueFrom: $(inputs.custom_file.path),$(inputs.custom_args)
     prefix: --custom
@@ -36,7 +45,7 @@ arguments:
     prefix: --polyphen
   - valueFrom: 'b'
     prefix: --sift
-  - valueFrom: 500
+  - valueFrom: '500'
     prefix: --buffer_size
   - valueFrom: 'homo_sapiens'
     prefix: --species
@@ -53,6 +62,6 @@ arguments:
   - '--af' 
   - '--af_gnomad' 
   - '--canonical'
-outputs:
-  out1: stdout
+  - valueFrom:  $(outputs.anno_file_out.path)
+    prefix: --output_file
    
