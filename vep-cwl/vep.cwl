@@ -15,6 +15,11 @@ inputs:
     inputBinding:
       position: 1
       prefix: '-input_file'
+  assembly:
+    type: string
+    inputBinding:
+      position: 2
+      prefix: '-assembly'
   custom_file:
     type: File
     secondaryFiles:
@@ -27,7 +32,27 @@ arguments:
   - '--cache'
   - valueFrom: '/opt/vep/.vep/'
     prefix: --dir_cache
-  - '--symbol --transcript_version --tsl --numbers  --check_existing --hgvs --biotype --cache --tab --no_stats --af --af_gnomad --canonical'
+  - valueFrom: 'b'
+    prefix: --polyphen
+  - valueFrom: 'b'
+    prefix: --sift
+  - valueFrom: 500
+    prefix: --buffer_size
+  - valueFrom: 'homo_sapiens'
+    prefix: --species
+  - '--symbol'
+  - '--transcript_version'
+  - '--tsl' 
+  - '--numbers'  
+  - '--check_existing' 
+  - '--hgvs' 
+  - '--biotype'
+  - '--cache' 
+  - '--tab' 
+  - '--no_stats' 
+  - '--af' 
+  - '--af_gnomad' 
+  - '--canonical'
 outputs:
   out1: stdout
    
