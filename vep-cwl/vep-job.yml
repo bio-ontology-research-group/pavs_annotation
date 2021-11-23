@@ -6,3 +6,7 @@ input_file:
   class: File
   path: sample.vcf
 output_file: 'sample-output.vcf'
+custom_file: 
+  class: File
+  path: 'sorted.pavs.plugin.38.vcf.gz'
+custom_args: 'PAVS,vcf,exact'
