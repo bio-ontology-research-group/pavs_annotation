@@ -30,7 +30,7 @@ inputs:
 
 outputs:
   console_out: stdout
-  anno_file_out:
+  anno_file_out: 
     type: File
     outputBinding:
       glob: output.vcf
@@ -62,5 +62,5 @@ arguments:
   - '--af' 
   - '--af_gnomad' 
   - '--canonical'
-  - valueFrom:  $(outputs.anno_file_out.path)
+  - valueFrom: output.vcf
     prefix: --output_file   
