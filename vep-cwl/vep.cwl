@@ -17,15 +17,16 @@ inputs:
       prefix: '-input_file'
   custom_file:
     type: File
-    inputBinding:
-      position: 2
-      prefix: '--custom'
+    secondaryFiles:
+      - .tbi
   custom_args:
     type: string
-    inputBinding:
-      position: 3
-      prefix: ','
-
+arguments:
+  - valueFrom: $(inputs.custom_file.path),$(inputs.custom_args)
+    prefix: --custom
+  - '--cache'
+  - valueFrom: '/opt/vep/.vep/'
+    prefix: --dir_cache
 # inputs:
 #   cfp:
 #     type: string?
