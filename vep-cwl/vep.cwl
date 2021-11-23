@@ -63,5 +63,4 @@ arguments:
   - '--af_gnomad' 
   - '--canonical'
   - valueFrom:  $(outputs.anno_file_out.path)
-    prefix: --output_file
-   
+    prefix: --output_file   
