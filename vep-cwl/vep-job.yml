@@ -1,0 +1,8 @@
+cfp: cfp
+species: homo_sapiens
+assembly: GRCh38
+PLUGINS: all
+input_file: 
+  class: File
+  path: sample.vcf
+output_file: 'sample-output.vcf'
