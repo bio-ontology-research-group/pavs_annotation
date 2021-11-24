@@ -57,9 +57,9 @@ arguments:
     prefix: --custom
   - valueFrom: $(inputs.go_custom_file.path),$(inputs.go_custom_args)
     prefix: --custom
-  - valueFrom: $(inputs.hpo_custom_file.path),$(inputs.hpo_custom_file)
+  - valueFrom: $(inputs.hpo_custom_file.path),$(inputs.hpo_custom_args)
     prefix: --custom
-  - valueFrom: $(inputs.ppi_custom_file.path),$(inputs.ppi_custom_file)
+  - valueFrom: $(inputs.ppi_custom_file.path),$(inputs.ppi_custom_args)
     prefix: --custom
   - '--cache'
   - valueFrom: '/opt/vep/.vep/'
