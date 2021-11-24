@@ -61,7 +61,7 @@ arguments:
     prefix: --custom
   - valueFrom: $(inputs.ppi_custom_file.path),$(inputs.ppi_custom_args)
     prefix: --custom
-  - '--cache'
+  - '--offline'
   - valueFrom: '/opt/vep/.vep/'
     prefix: --dir_cache
   - valueFrom: 'b'
