@@ -2,7 +2,19 @@ assembly: GRCh38
 input_file: 
   class: File
   path: sample.vcf
-custom_file: 
+pavs_custom_file: 
   class: File
   path: 'sorted.pavs.plugin.38.vcf.gz'
-custom_args: 'PAVS,vcf,exact'
+pavs_custom_args: 'PAVS,vcf,exact'
+go_custom_file: 
+  class: File
+  path: 'sorted.plugin.go.bed.gz'
+go_custom_args: 'GO_CLASSES,bed,overlap'
+hpo_custom_file: 
+  class: File
+  path: 'sorted.plugin.pheno.bed.gz'
+hpo_custom_args: 'PHENOTYPE,bed,overlap'
+ppi_custom_file: 
+  class: File
+  path: 'sorted.plugin.ppi.bed.gz'
+ppi_custom_args: 'PPI,bed,overlap'
