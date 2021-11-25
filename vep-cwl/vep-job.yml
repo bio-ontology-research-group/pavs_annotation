@@ -2,6 +2,7 @@ assembly: GRCh38
 input_file: 
   class: File
   path: sample.vcf
+output_file: output1.vcf
 pavs_custom_file: 
   class: File
   path: 'sorted.pavs.plugin.38.vcf.gz'

@@ -20,6 +20,8 @@ inputs:
     inputBinding:
       position: 2
       prefix: '-assembly'
+  output_file:
+    type: string
   pavs_custom_file:
     type: File
     secondaryFiles:
@@ -50,7 +52,7 @@ outputs:
   anno_file_out: 
     type: File
     outputBinding:
-      glob: output.vcf
+      glob: $(inputs.output_file)
 
 arguments:
   - valueFrom: $(inputs.pavs_custom_file.path),$(inputs.pavs_custom_args)
@@ -85,5 +87,5 @@ arguments:
   - '--af' 
   - '--af_gnomad' 
   - '--canonical'
-  - valueFrom: output.vcf
+  - valueFrom: $(inputs.output_file)
     prefix: --output_file   
